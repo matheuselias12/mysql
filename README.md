@@ -1,5 +1,6 @@
 # mysql
 banco-de-dados
+
 #Selecione o banco de dados (esquema) pokédex.
 
 USE `pokedex`;

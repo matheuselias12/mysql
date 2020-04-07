@@ -253,7 +253,7 @@ FROM `Pokemon`;
 SELECT AVG(peso_kg)
 FROM `Pokemon`;
 
-# Qual é a soma das alturas dos pokémons?,
+# Qual é a soma das alturas dos pokémons?
 
 SELECT SUM(altura_m)
 FROM `Pokemon`;

@@ -253,7 +253,7 @@ FROM `Pokemon`;
 SELECT AVG(peso_kg)
 FROM `Pokemon`;
 
-# Qual é a soma das alturas dos pokémons?
+# Qual é a soma das alturas dos pokémons?,
 
 SELECT SUM(altura_m)
 FROM `Pokemon`;
@@ -288,71 +288,68 @@ FROM `Pokemon`;
 SELECT SUM(peso_kg)
 FROM `Pokemon`;
 
-#Qual é a quantidade de Pokémons lendários e não lendários
+# Qual é a quantidade de Pokémons lendários e não lendários
 
 SELECT SUM(lendario = 1), SUM(lendario = 0) 
 FROM `Pokemon`
 ORDER BY cor ASC;
 
-#Qual é a quantidade de pokémons para cada uma das diferentes cores ordenadas decrescente?
+# Qual é a quantidade de pokémons para cada uma das diferentes cores ordenadas decrescente?
 
 SELECT DISTINCT cor, COUNT(cor) AS quantidade 
 FROM `Pokemon`
 GROUP BY cor DESC;
 
-#Qual é a média de peso e altura de cada um dos tipos primários dos pokémons? Ordene os resultados decrescente respectivamente por média de peso e altura.
+# Qual é a média de peso e altura de cada um dos tipos primários dos pokémons? Ordene os resultados decrescente respectivamente por média de peso e altura.
 
 SELECT DISTINCT tipo1, AVG(peso_kg) AS peso, AVG(altura_m) AS altura 
 FROM `Pokemon`
 GROUP BY tipo1 
 ORDER BY peso_kg DESC;
 
-#Qual é a taxa de captura média por cor de cada um dos pokémons lendários?
+# Qual é a taxa de captura média por cor de cada um dos pokémons lendários?
 
 SELECT DISTINCT cor, AVG(taxa_captura) 
 FROM `Pokemon`
 WHERE lendario = 1 
 GROUP BY cor;
 
-#Qual os tipos primários que possuem a taxa de captura média acima de 100
+# Qual os tipos primários que possuem a taxa de captura média acima de 100
 
 SELECT DISTINCT tipo1 
 FROM `Pokemon`
 WHERE taxa_captura > 100
 ORDER BY tipo1 ASC;
 
-#Agrupados por cor, quais pokémons não lendários possuem média total abaixo de 400
+# Agrupados por cor, quais pokémons não lendários possuem média total abaixo de 400
 
 SELECT nome, cor, total 
 FROM `Pokemon`
 WHERE lendario = 0 AND total > 400 
 ORDER BY total ASC;
 
-#Qual o valor máximo total em cada uma das gerações?
+# Qual o valor máximo total em cada uma das gerações?
 
 SELECT DISTINCT geracao, SUM(total) 
 FROM `Pokemon`
 GROUP BY geracao 
 ORDER BY geracao ASC;
 
-#Quantos pokémons lendários existem em cada uma das gerações?
+# Quantos pokémons lendários existem em cada uma das gerações?
 
 SELECT DISTINCT geracao, sum(lendario) 
 FROM `Pokemon`
 GROUP BY geracao;
 
-#Em cada uma das gerações, quantos pokémons tem tipos primários e secundários e qual a taxa_captura média deles?
+# Em cada uma das gerações, quantos pokémons tem tipos primários e secundários e qual a taxa_captura média deles?
 
 SELECT DISTINCT geracao, AVG(taxa_captura) 
 FROM `Pokemon`
 WHERE tipo1 IS NOT NULL AND tipo2 IS NOT NULL 
 GROUP BY geracao;
 
-#Qual é a quantidade de cores de cada um dos pokémons lendários em todas as gerações?
+# Qual é a quantidade de cores de cada um dos pokémons lendários em todas as gerações?
 
 SELECT DISTINCT lendario, COUNT(cor) 
 FROM `Pokemon` 
 GROUP BY lendario;
-
-
-
